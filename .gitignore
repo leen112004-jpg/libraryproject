@@ -24,3 +24,4 @@ venv.bak/
 **/.DS_Store
 .history
 db.sqlite3
+.vs/

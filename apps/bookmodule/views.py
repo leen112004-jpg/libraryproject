@@ -1,3 +1,23 @@
 from django.shortcuts import render
+from django.http import HttpResponse
 
-# Create your views here.
+def index(request):
+    name = request.GET.get("name") or "world!"
+    return render(request, "bookmodule/index.html", {"name": name})
+
+def index2(request, val1=0):
+    return HttpResponse("value1 = " + str(val1))
+
+def list_books(request):
+    return render(request, 'bookmodule/list_books.html')
+
+def viewbook(request, bookId):
+    books = {
+        123: {'id': 123, 'title': 'Continuous Delivery', 'author': 'J. Humble and D. Farley'},
+        456: {'id': 456, 'title': 'Secrets of Reverse Engineering', 'author': 'E. Eilam'},
+    }
+    book = books.get(bookId, None)
+    return render(request, 'bookmodule/show.html', {'book': book})
+
+def aboutus(request):
+    return render(request, 'bookmodule/aboutus.html')
