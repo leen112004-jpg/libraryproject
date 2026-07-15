@@ -1,0 +1,42 @@
+﻿<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <title>HTML Lists</title>
+    <link rel="stylesheet" href="{% static 'main.css' %}">
+</head>
+<body>
+    <h1>HTML Lists Example</h1>
+    <h2>Unordered List</h2>
+    <ul>
+        <li>Item 1</li>
+        <li>Item 2</li>
+        <li>Item 3</li>
+    </ul>
+    <h2>Ordered List</h2>
+    <ol>
+        <li>First</li>
+        <li>Second</li>
+        <li>Third</li>
+    </ol>
+    <h2>Nested List</h2>
+    <ul>
+        <li>
+            Fruits
+            <ul>
+                <li>Apple</li>
+                <li>Banana</li>
+                <li>Orange</li>
+            </ul>
+        </li>
+        <li>
+            Vegetables
+            <ul>
+                <li>Carrot</li>
+                <li>Broccoli</li>
+                <li>Spinach</li>
+            </ul>
+        </li>
+    </ul>
+</body>
+</html>
