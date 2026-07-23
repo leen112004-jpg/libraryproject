@@ -1,18 +1,9 @@
-﻿<!DOCTYPE html>
+﻿{% extends "layouts/base.html" %}
 {% load static %}
-<html lang="en">
-<head>
-    <title>About Us</title>
-    <link rel="icon" href="{% static 'qu-icon.png' %}">
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
-</head>
-<body>
-    <div class="topnav">
-        <a href="{% url 'books.index' %}">Home</a>
-        <a href="{% url 'books.list_books' %}">List Books</a>
-        <a class="active" href="{% url 'books.aboutus' %}">About</a>
-    </div>
-    <h1>About us</h1>
-    <p>This is a paragraph text about us.</p>
-</body>
-</html>
+
+{% block title %} About Us {% endblock title %}
+
+{% block content %}
+<h1>About us</h1>
+<p>This is a paragraph text about us.</p>
+{% endblock content %}

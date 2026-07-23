@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Library Project{% endblock title %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    {% block stylesheets %}{% endblock stylesheets %}
+</head>
+<body>
+    <div class="topnav">
+        <a href="{% url 'books.index' %}">Home</a>
+        <a href="{% url 'books.list_books' %}">List Books</a>
+        <a href="{% url 'books.aboutus' %}">About</a>
+    </div>
+    {% block content %}{% endblock content %}
+</body>
+</html>

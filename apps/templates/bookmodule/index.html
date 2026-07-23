@@ -1,19 +1,10 @@
-﻿<!DOCTYPE html>
+﻿{% extends "layouts/base.html" %}
 {% load static %}
-<html lang="en">
-<head>
-    <title>My First Index HTML Page</title>
-    <link rel="icon" href="{% static 'qu-icon.png' %}">
-    <link rel="stylesheet" href="{% static 'styles.css' %}">
-</head>
-<body>
-    <div class="topnav">
-        <a class="active" href="{% url 'books.index' %}">Home</a>
-        <a href="{% url 'books.list_books' %}">List Books</a>
-        <a href="{% url 'books.aboutus' %}">About</a>
-    </div>
-    <h1 style="color: blue;">This is heading 1 (Library)</h1>
-    <p style="color: white; background-color: black;">This is a paragraph text</p>
-    <a href="https://www.w3schools.com/html/default.asp">Learn more about HTML</a>
-</body>
-</html>
+
+{% block title %} Home Page {% endblock title %}
+
+{% block content %}
+<h1 style="color: blue;">This is heading 1 (Library)</h1>
+<p style="color: white; background-color: black;">This is a paragraph text</p>
+<a href="https://www.w3schools.com/html/default.asp">Learn more about HTML</a>
+{% endblock content %}
