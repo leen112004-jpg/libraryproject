@@ -1,0 +1,14 @@
+﻿{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %} Add Book (Django Forms) {% endblock title %}
+
+{% block content %}
+<h1>Add New Book (Django Forms)</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Book</button>
+</form>
+<a href="{% url 'books.list_books_django' %}">Cancel</a>
+{% endblock content %}

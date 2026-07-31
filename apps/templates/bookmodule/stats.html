@@ -1,0 +1,16 @@
+﻿{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %} Book Statistics {% endblock title %}
+
+{% block content %}
+<h1>Book Statistics</h1>
+<ul>
+    <li><strong>Number of books:</strong> {{ stats.count }}</li>
+    <li><strong>Total price:</strong> {{ stats.total }}</li>
+    <li><strong>Average price:</strong> {{ stats.avg }}</li>
+    <li><strong>Maximum price:</strong> {{ stats.max }}</li>
+    <li><strong>Minimum price:</strong> {{ stats.min }}</li>
+</ul>
+<a href="{% url 'books.index' %}">Back to Home</a>
+{% endblock content %}

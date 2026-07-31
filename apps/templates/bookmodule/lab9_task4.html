@@ -1,0 +1,18 @@
+﻿{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %} Departments with >2 Students {% endblock title %}
+
+{% block content %}
+<h1>Departments with More Than 2 Students</h1>
+{% if departments %}
+<ul>
+    {% for dept in departments %}
+    <li><strong>{{ dept.name }}:</strong> {{ dept.student_count }} students</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No departments with more than 2 students.</p>
+{% endif %}
+<a href="{% url 'books.index' %}">Back to Home</a>
+{% endblock content %}

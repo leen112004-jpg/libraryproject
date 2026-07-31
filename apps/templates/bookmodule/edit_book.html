@@ -1,0 +1,25 @@
+﻿{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %} Edit Book {% endblock title %}
+
+{% block content %}
+<h1>Edit Book</h1>
+<form method="post">
+    {% csrf_token %}
+    <label>Title:</label>
+    <input type="text" name="title" value="{{ book.title }}" required>
+    <br>
+    <label>Author:</label>
+    <input type="text" name="author" value="{{ book.author }}" required>
+    <br>
+    <label>Price:</label>
+    <input type="number" name="price" step="0.01" value="{{ book.price }}" required>
+    <br>
+    <label>Edition:</label>
+    <input type="number" name="edition" value="{{ book.edition }}" required>
+    <br>
+    <button type="submit">Update Book</button>
+</form>
+<a href="{% url 'books.list_books' %}">Cancel</a>
+{% endblock content %}

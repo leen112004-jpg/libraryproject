@@ -1,0 +1,18 @@
+﻿{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %} City Statistics {% endblock title %}
+
+{% block content %}
+<h1>Number of Students per City</h1>
+{% if city_stats %}
+<ul>
+    {% for city in city_stats %}
+    <li><strong>{{ city.city }}:</strong> {{ city.student_count }} students</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No data available.</p>
+{% endif %}
+<a href="{% url 'books.index' %}">Back to Home</a>
+{% endblock content %}

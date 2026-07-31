@@ -1,0 +1,18 @@
+﻿{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %} Oldest Student per Department {% endblock title %}
+
+{% block content %}
+<h1>Oldest Student in Each Department</h1>
+{% if oldest_students %}
+<ul>
+    {% for item in oldest_students %}
+    <li><strong>{{ item.department }}:</strong> {{ item.student_name }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No data available.</p>
+{% endif %}
+<a href="{% url 'books.index' %}">Back to Home</a>
+{% endblock content %}

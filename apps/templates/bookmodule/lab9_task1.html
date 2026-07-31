@@ -1,0 +1,18 @@
+﻿{% extends "layouts/base.html" %}
+{% load static %}
+
+{% block title %} Department Student Count {% endblock title %}
+
+{% block content %}
+<h1>Number of Students per Department</h1>
+{% if departments %}
+<ul>
+    {% for dept in departments %}
+    <li><strong>{{ dept.name }}:</strong> {{ dept.student_count }} students</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No data available.</p>
+{% endif %}
+<a href="{% url 'books.index' %}">Back to Home</a>
+{% endblock content %}
