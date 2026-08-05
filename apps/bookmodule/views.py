@@ -5,6 +5,10 @@ from django.db.models import Q, Count, Sum, Avg, Max, Min
 from .models import Student, Address
 from django.db.models import Count, Max
 from .models import Department, Course, Student
+from django.shortcuts import redirect, get_object_or_404
+from django.urls import reverse
+from .models import Book
+from django import forms
 
 
 def index(request):
@@ -135,3 +139,72 @@ def lab9_task3(request):
 def lab9_task4(request):
     departments = Department.objects.annotate(student_count=Count('student')).filter(student_count__gt=2).order_by('-student_count')
     return render(request, 'bookmodule/lab9_task4.html', {'departments': departments})
+
+def list_books(request):
+    books = Book.objects.all()
+    return render(request, 'bookmodule/list_books_crud.html', {'books': books})
+
+def add_book(request):
+    if request.method == 'POST':
+        title = request.POST.get('title')
+        author = request.POST.get('author')
+        price = request.POST.get('price')
+        edition = request.POST.get('edition')
+        Book.objects.create(title=title, author=author, price=price, edition=edition)
+        return redirect(reverse('books.list_books'))
+    return render(request, 'bookmodule/add_book.html')
+
+def edit_book(request, id):
+    book = get_object_or_404(Book, id=id)
+    if request.method == 'POST':
+        book.title = request.POST.get('title')
+        book.author = request.POST.get('author')
+        book.price = request.POST.get('price')
+        book.edition = request.POST.get('edition')
+        book.save()
+        return redirect(reverse('books.list_books'))
+    return render(request, 'bookmodule/edit_book.html', {'book': book})
+
+def delete_book(request, id):
+    book = get_object_or_404(Book, id=id)
+    if request.method == 'POST':
+        book.delete()
+        return redirect(reverse('books.list_books'))
+    return render(request, 'bookmodule/delete_book.html', {'book': book})
+
+class BookForm(forms.ModelForm):
+    class Meta:
+        model = Book
+        fields = ['title', 'author', 'price', 'edition']
+
+def list_books_django(request):
+    books = Book.objects.all()
+    return render(request, 'bookmodule/list_books_django.html', {'books': books})
+
+def add_book_django(request):
+    if request.method == 'POST':
+        form = BookForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('books.list_books_django'))
+    else:
+        form = BookForm()
+    return render(request, 'bookmodule/add_book_django.html', {'form': form})
+
+def edit_book_django(request, id):
+    book = get_object_or_404(Book, id=id)
+    if request.method == 'POST':
+        form = BookForm(request.POST, instance=book)
+        if form.is_valid():
+            form.save()
+            return redirect(reverse('books.list_books_django'))
+    else:
+        form = BookForm(instance=book)
+    return render(request, 'bookmodule/edit_book_django.html', {'form': form, 'book': book})
+
+def delete_book_django(request, id):
+    book = get_object_or_404(Book, id=id)
+    if request.method == 'POST':
+        book.delete()
+        return redirect(reverse('books.list_books_django'))
+    return render(request, 'bookmodule/delete_book_django.html', {'book': book})
