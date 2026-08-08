@@ -42,4 +42,9 @@ urlpatterns = [
     path('lab11/students2/delete/<int:id>/', views.student2_delete, name='books.student2_delete'),
     path('lab11/profiles/', views.profile_list, name='books.profile_list'),
     path('lab11/profiles/add/', views.profile_add, name='books.profile_add'),
+    path('lab13/task1/', views.lab13_task1, name="books.lab13_task1"),
+    path('lab13/task2/', views.lab13_task2, name="books.lab13_task2"),
+    path('lab13/task3/', views.lab13_task3, name="books.lab13_task3"),
+    path('lab13/task4/', views.lab13_task4, name="books.lab13_task4"),
+    path('lab13/task5/', views.lab13_task5, name="books.lab13_task5"),
 ]

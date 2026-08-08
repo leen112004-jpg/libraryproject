@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 1 - Change Div</title>
+</head>
+<body>
+    <div id="myDiv" style="width:200px; height:100px; background-color:lightgray; padding:10px;">
+        This is a div.
+    </div>
+    <button onclick="changeColor()">Change Color</button>
+    <button onclick="changeText()">Change Text</button>
+
+    <script>function changeColor() {
+            document.getElementById("myDiv").style.backgroundColor = "lightblue";
+        }
+        function changeText() {
+            document.getElementById("myDiv").innerHTML = "Text changed!";
+        }</script>
+</body>
+</html>

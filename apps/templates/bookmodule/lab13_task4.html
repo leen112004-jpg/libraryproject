@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 4 - Hover Effect</title>
+</head>
+<body>
+    <div id="hoverDiv" style="width:200px; height:100px; background-color:orange; padding:10px;">
+        Hover over me!
+    </div>
+
+    <script>let div = document.getElementById("hoverDiv");
+        div.addEventListener("mouseover", function() {
+            this.style.backgroundColor = "purple";
+            this.style.fontSize = "24px";
+        });
+        div.addEventListener("mouseout", function() {
+            this.style.backgroundColor = "orange";
+            this.style.fontSize = "16px";
+        });</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 5 - Create Table with JS</title>
+</head>
+<body>
+    <div id="tableContainer"></div>
+
+    <script>let data = [
+            ["Name", "Age", "City"],
+            ["Ahmed", 22, "Riyadh"],
+            ["Sara", 24, "Jeddah"],
+            ["Mohammed", 20, "Dammam"]
+        ];
+
+        let table = document.createElement("table");
+        table.border = "1";
+
+        for (let row of data) {
+            let tr = document.createElement("tr");
+            for (let cell of row) {
+                let td = document.createElement("td");
+                td.appendChild(document.createTextNode(cell));
+                tr.appendChild(td);
+            }
+            table.appendChild(tr);
+        }
+
+        document.getElementById("tableContainer").appendChild(table);</script>
+</body>
+</html>

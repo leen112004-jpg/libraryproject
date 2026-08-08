@@ -1,0 +1,21 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 3 - Toggle Div</title>
+</head>
+<body>
+    <div id="toggleDiv" style="width:200px; height:100px; background-color:lightgreen; padding:10px;">
+        This div can be hidden/shown.
+    </div>
+    <button onclick="toggleDiv()">Toggle Div</button>
+
+    <script>function toggleDiv() {
+            let div = document.getElementById("toggleDiv");
+            if (div.style.display === "none") {
+                div.style.display = "block";
+            } else {
+                div.style.display = "none";
+            }
+        }</script>
+</body>
+</html>

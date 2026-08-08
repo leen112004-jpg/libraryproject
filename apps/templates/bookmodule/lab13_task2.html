@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Task 2 - Add List Item</title>
+</head>
+<body>
+    <ul id="myList">
+        <li>Item 1</li>
+        <li>Item 2</li>
+    </ul>
+    <button onclick="addItem()">Add Item</button>
+
+    <script>function addItem() {
+            let ul = document.getElementById("myList");
+            let li = document.createElement("li");
+            li.appendChild(document.createTextNode("New Item"));
+            ul.appendChild(li);
+        }</script>
+</body>
+</html>
