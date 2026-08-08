@@ -27,3 +27,21 @@ class Student(models.Model):
     department = models.ForeignKey(Department, on_delete=models.CASCADE)
     courses = models.ManyToManyField(Course)
     address = models.ForeignKey(Address, on_delete=models.CASCADE)  
+
+class Address(models.Model):
+    city = models.CharField(max_length=100)
+
+class Student(models.Model):
+    name = models.CharField(max_length=100)
+    address = models.ForeignKey(Address, on_delete=models.CASCADE)
+
+class Address2(models.Model):
+    city = models.CharField(max_length=100)
+
+class Student2(models.Model):
+    name = models.CharField(max_length=100)
+    addresses = models.ManyToManyField(Address2)
+
+class Profile(models.Model):
+    name = models.CharField(max_length=100)
+    image = models.ImageField(upload_to='profiles/')

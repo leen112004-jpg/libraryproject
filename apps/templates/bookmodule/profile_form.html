@@ -1,0 +1,11 @@
+﻿{% extends "layouts/base.html" %}
+{% block content %}
+<h1>Add Profile</h1>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label>Name:</label><input type="text" name="name" required><br>
+    <label>Image:</label><input type="file" name="image" required><br>
+    <button type="submit">Upload</button>
+</form>
+<a href="{% url 'books.profile_list' %}">Cancel</a>
+{% endblock %}

@@ -1,0 +1,14 @@
+﻿{% extends "layouts/base.html" %}
+{% block content %}
+<h1>Students (One-to-Many)</h1>
+<a href="{% url 'books.student_add' %}">Add Student</a>
+<ul>
+    {% for s in students %}
+    <li>
+        {{ s.name }} - {{ s.address.city }}
+        <a href="{% url 'books.student_edit' s.id %}">Edit</a>
+        <a href="{% url 'books.student_delete' s.id %}">Delete</a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

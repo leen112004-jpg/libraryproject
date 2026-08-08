@@ -1,0 +1,12 @@
+﻿{% extends "layouts/base.html" %}
+{% block content %}
+<h1>{% if student %}Edit{% else %}Add{% endif %} Student (M2M)</h1>
+<form method="post">
+    {% csrf_token %}
+    <label>Name:</label><input type="text" name="name" value="{{ student.name }}" required><br>
+    <label>Cities (comma separated):</label>
+    <input type="text" name="cities" value="{% if student %}{% for addr in student.addresses.all %}{{ addr.city }}{% if not forloop.last %}, {% endif %}{% endfor %}{% endif %}" placeholder="Riyadh, Jeddah, Dammam"><br>
+    <button type="submit">Save</button>
+</form>
+<a href="{% url 'books.student2_list' %}">Cancel</a>
+{% endblock %}
